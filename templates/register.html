@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px 0;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Register</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <table>
+                <tr>
+                    <td>{{ form.name.label }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.name(size=32) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.email.label }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.email(size=32) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password(size=32) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.submit() }}</td>
+                </tr>
+            </table>
+            {% if message %}
+            <p style="color: {% if 'success' in message or '🎉' in message %}green{% else %}red{% endif %};
+                    text-align: center;
+                    margin-top: 10px;">
+                {{ message }}
+                {% if 'exists' in message %}
+                    <a href="/login">Go to Login</a>
+                {% endif %}
+            </p>
+            {% endif %}
+        </form>
+        {% for field, errors in form.errors.items() %}
+            <p class="error">{{ field }}: {{ errors[0] }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
