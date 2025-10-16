@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #bfbfbf;
+            text-align: center;
+        }
+        /* Top Navigation Bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            float: right;
+            color: white;
+            text-align: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
 
+        /* Center Content */
+        .content {
+            margin-top: 100px;
+        }
+        .content img {
+            width: 200px;
+            height: 200px;
+        }
+        .start-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .start-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="/logout">Logout</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <a href="/">Home</a>
+    </div>
+
+    <!-- Center Section -->
+    <div class="content">
+        <h1>Welcome to Tic Tac Toe!</h1>
+        <!-- Replace with your own image if you like -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Tic_tac_toe.svg" alt="Tic Tac Toe">
+        <br>
+        <a href="/login" class="start-btn">Start Game</a>
+    </div>
+
+</body>
+</html>
